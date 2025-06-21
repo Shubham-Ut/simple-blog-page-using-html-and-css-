@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Page</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+            
+        }
+        .header{
+            margin: 0px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: rgb(255, 255, 255);
+            padding: 20px;
+        }
+        .list {
+            list-style: none;
+            margin-right: 200px;
+            
+            
+        }
+        .slide {
+            margin-left: 200px;
+            cursor: pointer;
+        }
+
+        ul {
+            display: flex;
+            justify-content: space-evenly;
+            list-style: none;
+            gap: 90px;
+            
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        .slide1 {
+            display: none;
+            
+        }
+        .slide:hover .slide1 {
+            display: block;
+            position: absolute;
+            background-color: rgb(255, 255, 255);
+            width: 50%;
+            padding: 20px;
+            margin: 0px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #1a1a1a;
+        }
+        button {
+            width: 10%;
+            padding: 10px;
+            color: rgb(5, 5, 5);
+            background-color: rgb(255, 255, 255);
+            border: 1px solid #1a1a1a;
+            cursor: pointer;
+        }   
+        * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+        }
+        .card1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        max-width: 1000px;
+        margin: auto;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+        }
+        .card2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        max-width: 1000px;
+        margin: auto;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-top: 60px;
+        margin-bottom: 200px;
+        }
+
+        .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        }
+
+        .card-content {
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        }
+
+        .card-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        }
+
+        .author-info {
+        display: flex;
+        align-items: center;
+        }
+
+        .avatar {
+        font-size: 24px;
+        margin-right: 10px;
+        }
+
+        .admin {
+        font-weight: bold;
+        }
+
+        .date {
+        font-size: 0.85rem;
+        color: gray;
+        }
+
+        .title {
+        font-size: 24px;
+        margin: 15px 0;
+        font-weight: 500;
+        }
+
+        .subtitle {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+        margin-bottom: 30px;
+        }
+
+        .card-footer {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        align-items: center;
+        font-size: 14px;
+        color: gray;
+        border-top: 1px solid #ddd;
+        padding-top: 15px;
+        }
+
+        .card-footer .likes {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 5px;
+        }
+        h1 {
+          font-family:  'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        
+      @media (max-width: 768px) {
+        .header {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 25px 15px;
+          gap: 20px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .list ul {
+          flex-direction: column;
+          align-items: center;
+          gap: 14px;
+          padding: 10px 0;
+        }
+
+        .list ul li a {
+          font-size: 16px;
+          padding: 8px 14px;
+          border-radius: 6px;
+          transition: background 0.3s ease;
+        }
+
+        .list ul li a:hover {
+          background-color: rgba(0,0,0,0.05);
+        }
+
+        .slide1 {
+          width: 100%;
+          padding: 15px;
+          margin-top: 10px;
+          border-radius: 10px;
+          box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        input {
+          width: 100%;
+          padding: 12px;
+          border-radius: 8px;
+          border: 1px solid #ccc;
+          margin-bottom: 10px;
+          font-size: 15px;
+        }
+
+        button {
+          width: 100%;
+          padding: 12px;
+          background-color: #000;
+          color: #fff;
+          border: none;
+          border-radius: 8px;
+          font-size: 15px;
+          cursor: pointer;
+        }
+
+        .card1,
+        .card2 {
+          grid-template-columns: 1fr;
+          margin: 30px 16px;
+          border-radius: 14px;
+        }
+
+        .card-image img {
+          height: auto;
+          border-bottom: 1px solid #eee;
+        }
+
+        .card-content {
+          padding: 25px 20px;
+        }
+
+        .title {
+          font-size: 22px;
+          margin-top: 10px;
+        }
+
+        .subtitle {
+          font-size: 15px;
+          line-height: 1.6;
+          color: #444;
+        }
+
+        .card-footer {
+          grid-template-columns: 1fr;
+          gap: 10px;
+          padding-top: 20px;
+          font-size: 14px;
+          text-align: center;
+          border-top: 1px solid #eee;
+        }
+
+        .likes {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 20px;
+          margin-bottom: 10px;
+        }
+
+        .title {
+          font-size: 20px;
+        }
+
+        .subtitle {
+          font-size: 14px;
+        }
+
+        .avatar {
+          font-size: 20px;
+        }
+
+        .slide img {
+          width: 24px;
+        }
+      }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Blog Page</h1>
+        <div class="slide"><img src="./icons8-search-50.png" alt="Search" width="20px">
+            <div class="slide1">
+                <input type="text" placeholder="Search Here">
+                <button type="submit">Search</button>
+            </div>
+        </div>
+        
+        <div class="list">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Podcast</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <img src="./baac51_d623fe1790ed419a89d20aa05f6064b2.avif" alt="Background image" width="100%" >
+    <div class="card1">
+    <div class="card-image">
+      <img src="./e32fd518921d4fc2a430ff518109eccd.avif" alt="Interior Image">
+    </div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="author-info">
+          <div class="avatar">👤</div>
+          <div class="author-text">
+            <p class="admin">Shubham</p>
+            <p class="date">Mar 21, 2023 • 1 min read</p>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="title">PLAYING WITH PATTERNS</h2>
+      <p class="subtitle">
+        Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your audience to continue reading....
+      </p>
+
+      <div class="card-footer">
+        <p>3 views</p>
+        <p>8 comments</p>
+        <div class="likes">
+          <p>4</p>
+          <span class="heart">❤️</span>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="card2">
+    <div class="card-image">
+      <img src="./84bcc4ac73e5416fb9b9aa9231ccabaf.avif" alt="Interior Image">
+    </div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="author-info">
+          <div class="avatar">👤</div>
+          <div class="author-text">
+            <p class="admin">Shubham</p>
+            <p class="date">Mar 21, 2023 • 10 min read</p>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="title">OFF THE WALL DESIGN DECOR</h2>
+      <p class="subtitle">
+        Writing a blog is a great way to position yourself as an authority in your field and captivate your readers’ attention. Do you want to improve your site’s SEO ranking? Consider topics that focus on relevant keywords and relate back to your website or business. You can also add hashtags (#vacation #dream #summer) throughout your posts to reach more people, and help visitors search for relevant content. 
+      </p>
+
+      <div class="card-footer">
+        <p>9 views</p>
+        <p>10 comments</p>
+        <div class="likes">
+          <p>8</p>
+          <span class="heart">❤️</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
